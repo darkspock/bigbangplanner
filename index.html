@@ -103,6 +103,9 @@
 
   footer { border-top: 1px solid var(--line); padding: 32px 0 48px; color: var(--muted); font-size: 14px; }
   footer p { margin: 4px 0; }
+  .disclaimer { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); max-width: 52em; font-size: 13px; }
+  .disclaimer h3 { margin: 0 0 6px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink); }
+  .disclaimer p { margin: 0 0 8px; }
 
   @media (max-width: 820px) {
     nav { display: none; }
@@ -188,7 +191,7 @@
       <div class="exampleHead">
         <div>
           <h2 data-t="exampleTitle">Explore the example</h2>
-          <p data-t="exampleText">Apartment 4A, a fan homage to The Big Bang Theory. Open the doors, switch on the computers, run the taps or walk inside.</p>
+          <p data-t="exampleText">Apartment 4A, inspired by Sheldon and Leonard's flat. Open the doors, switch on the computers, run the taps or walk inside.</p>
         </div>
         <a class="btn small" id="fullScreen" href="viewer.html" target="_blank" rel="noopener" data-t="exampleFull">Open full screen ↗</a>
       </div>
@@ -292,8 +295,13 @@ python3 -m http.server 8000
 
 <footer>
   <div class="wrap">
-    <p data-th="footer1">Big Bang Planner · <a data-repo="/blob/main/LICENSE" href="https://github.com/darkspock/bigbangplanner/blob/main/LICENSE">MIT licence</a> · Built with <a href="https://threejs.org/">three.js</a></p>
-    <p data-t="footer2">An independent fan project. Not affiliated with or endorsed by the creators of The Big Bang Theory.</p>
+    <p data-th="footer1">Big Bang Planner · <a data-repo="/blob/main/LICENSE" href="https://github.com/darkspock/bigbangplanner/blob/main/LICENSE">MIT licence</a> · Built with <a href="https://threejs.org/">three.js</a> · <a href="#disclaimer">Disclaimer</a> · <a href="https://x.com/juanmacias" rel="noopener">@juanmacias</a></p>
+    <div class="disclaimer" id="disclaimer">
+      <h3 data-t="discTitle">Disclaimer</h3>
+      <p data-t="disc1">Big Bang Planner is an independent fan project. It is not affiliated with, sponsored or endorsed by the creators, producers or rights holders of The Big Bang Theory, whose name, characters and trademarks belong to their owners. No images, logos or footage from the series are used: everything is drawn by the framework itself, and the layout and measurements of the example apartment are made up.</p>
+      <p data-t="disc2">The software is provided "as is", without warranty of any kind, under the MIT licence. The models and measurements it produces are a visual aid: check them on site or with a professional before building, renovating or buying furniture.</p>
+      <p data-th="disc3">Questions, ideas, or a request to change or remove something? Write to me on X: <a href="https://x.com/juanmacias" rel="noopener">@juanmacias</a>.</p>
+    </div>
   </div>
 </footer>
 
@@ -310,7 +318,7 @@ python3 -m http.server 8000
     ctaDownload: 'Descargar en GitHub', ctaExample: 'Probar el ejemplo',
     heroNote: 'Sin instalar nada ni compilar: HTML, JavaScript y three.js.',
     exampleTitle: 'Explora el ejemplo',
-    exampleText: 'El apartamento 4A, un homenaje de fan a The Big Bang Theory. Abre las puertas, enciende los ordenadores, abre los grifos o pasea por dentro.',
+    exampleText: 'El apartamento 4A, inspirado en el piso de Sheldon y Leonard. Abre las puertas, enciende los ordenadores, abre los grifos o pasea por dentro.',
     exampleFull: 'Abrir a pantalla completa ↗', exampleCover: '▶ Pulsa para explorar',
     exampleNote: 'La distribución y las medidas son inventadas para el ejemplo; no reproducen los planos del decorado.',
     howTitle: 'Cómo funciona',
@@ -334,8 +342,11 @@ python3 -m http.server 8000
     start1t: 'Como skill de Claude', start1: 'Copia la carpeta en <code class="inline">~/.claude/skills/bigbangplanner/</code> y pídeselo a Claude con el plano adjunto: «Usa bigbangplanner para crear mi piso a partir de este plano. La pared del salón mide 4,20 m.»',
     startZip: 'Descargar ZIP',
     start2t: 'En tu ordenador', start2: 'Clónalo y sirve la carpeta con cualquier servidor estático; después abre el visor.',
-    footer1: 'Big Bang Planner · <a href="https://github.com/darkspock/bigbangplanner/blob/main/LICENSE">Licencia MIT</a> · Hecho con <a href="https://threejs.org/">three.js</a>',
-    footer2: 'Proyecto de fan independiente. Sin relación con los creadores de The Big Bang Theory ni respaldo por su parte.',
+    footer1: 'Big Bang Planner · <a href="https://github.com/darkspock/bigbangplanner/blob/main/LICENSE">Licencia MIT</a> · Hecho con <a href="https://threejs.org/">three.js</a> · <a href="#disclaimer">Aviso legal</a> · <a href="https://x.com/juanmacias" rel="noopener">@juanmacias</a>',
+    discTitle: 'Aviso legal',
+    disc1: 'Big Bang Planner es un proyecto de fan independiente. No tiene relación con los creadores, productores ni titulares de derechos de The Big Bang Theory, ni cuenta con su patrocinio o respaldo; el nombre, los personajes y las marcas de la serie pertenecen a sus titulares. No se usan imágenes, logotipos ni fragmentos de la serie: todo lo dibuja el propio framework, y la distribución y las medidas del apartamento de ejemplo son inventadas.',
+    disc2: 'El software se ofrece «tal cual», sin garantía de ningún tipo, bajo licencia MIT. Los modelos y medidas que produce son una ayuda visual: compruébalos en obra o con un profesional antes de construir, reformar o comprar muebles.',
+    disc3: '¿Preguntas, ideas o quieres que cambie o retire algo? Escríbeme en X: <a href="https://x.com/juanmacias" rel="noopener">@juanmacias</a>.',
   };
   if (LANG === 'es') {
     document.title = ES.pageTitle;

@@ -1,5 +1,5 @@
 // ---------- Example house: apartment 4A ----------
-// Fan homage inspired by Sheldon and Leonard's apartment in the TV series The Big Bang Theory. The layout and the
+// Inspired by Sheldon and Leonard's apartment. The layout and the
 // measurements are approximate and made up for the example: they do not reproduce any official plans of the set.
 // Full format in docs/FORMAT.md. Measurements in metres; x grows towards the east and y towards the south, as on a drawing.
 // Texts are bilingual ({ en, es }); a plain string is fine too if the house only needs one language.
@@ -13,12 +13,12 @@
 export default {
   name: { en: 'Apartment 4A', es: 'Apartamento 4A' },
   description: {
-    en: 'Example house: a homage inspired by The Big Bang Theory (approximate measurements)',
-    es: 'Casa de ejemplo: homenaje inspirado en la serie The Big Bang Theory (medidas aproximadas)',
+    en: "Example house: inspired by Sheldon and Leonard's flat (approximate measurements)",
+    es: 'Casa de ejemplo: inspirada en el piso de Sheldon y Leonard (medidas aproximadas)',
   },
   credits: {
-    en: 'Fan example inspired by The Big Bang Theory, a trademark and work of its owners; layout and measurements are made up.',
-    es: 'Ejemplo de fan inspirado en The Big Bang Theory, marca y obra de sus titulares; distribución y medidas inventadas.',
+    en: 'Example inspired by Sheldon and Leonard\'s flat; layout and measurements are made up.',
+    es: 'Ejemplo inspirado en el piso de Sheldon y Leonard; distribución y medidas inventadas.',
   },
   ceilingHeight: 2.7,
   sun: [-0.7, 0.6],                                    // where the sun comes from: west and a little south

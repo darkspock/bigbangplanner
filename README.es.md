@@ -49,10 +49,18 @@ Y abre `http://localhost:8000/` (la página del proyecto, con el ejemplo dentro)
 
 ## La casa de ejemplo
 
-`apartment-4a` es un homenaje de fan inspirado en el piso de Sheldon y Leonard de la serie *The Big Bang Theory*. La distribución y las medidas son inventadas y aproximadas, no planos oficiales. La serie, sus personajes y su nombre pertenecen a sus titulares. No se usan imágenes ni logotipos de la serie: todo está dibujado por el propio kit.
+`apartment-4a` está inspirado en el piso de Sheldon y Leonard. La distribución y las medidas son inventadas y aproximadas, no planos oficiales. Los nombres de los personajes pertenecen a sus titulares. No se usan imágenes ni logotipos de ninguna serie: todo está dibujado por el propio kit.
 
 ## Licencias
 
 - Big Bang Planner: [licencia MIT](LICENSE).
 - three.js: licencia MIT, cargado desde jsDelivr.
 - Texturas y muebles: procedurales, generados por el propio kit.
+
+## Aviso legal
+
+Big Bang Planner es un proyecto de fan independiente. No tiene relación con los creadores, productores ni titulares de derechos de *The Big Bang Theory*, ni cuenta con su patrocinio o respaldo; el nombre, los personajes y las marcas de la serie pertenecen a sus titulares. El software se ofrece «tal cual», sin garantía, bajo licencia MIT; los modelos y medidas que produce son una ayuda visual, que conviene comprobar en obra o con un profesional antes de construir, reformar o comprar muebles.
+
+## Contacto
+
+Preguntas, ideas o peticiones para cambiar o retirar algo: [@juanmacias en X](https://x.com/juanmacias).
