@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Big Bang Planner</title>
+<link rel="stylesheet" href="engine/styles.css">
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<!-- Every visible text comes from engine/i18n.js (data-i18n*); the English text here is only what shows before it loads -->
+<div id="app"></div>
+
+<div class="panel" id="panel">
+  <div class="head">
+    <div>
+      <h1 id="title">Big Bang Planner</h1>
+      <p class="sub" id="subtitle"></p>
+    </div>
+    <div class="headBtns">
+      <div id="langs" role="group" aria-label="Language / Idioma">
+        <button class="flag" data-lang="en" title="English" aria-label="English" aria-pressed="false">
+          <svg viewBox="0 0 60 30" width="18" height="9" aria-hidden="true">
+            <clipPath id="ukT"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath>
+            <rect width="60" height="30" fill="#012169"/>
+            <path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/>
+            <path d="M0,0L60,30M60,0L0,30" clip-path="url(#ukT)" stroke="#c8102e" stroke-width="4"/>
+            <path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/>
+            <path d="M30,0v30M0,15h60" stroke="#c8102e" stroke-width="6"/>
+          </svg>
+        </button>
+        <button class="flag" data-lang="es" title="Español" aria-label="Español" aria-pressed="false">
+          <svg viewBox="0 0 30 20" width="14" height="9" aria-hidden="true">
+            <rect width="30" height="20" fill="#aa151b"/><rect y="5" width="30" height="10" fill="#f1bf00"/>
+          </svg>
+        </button>
+      </div>
+      <button class="btn" id="help" data-i18n-title="help" aria-label="?">?</button>
+      <button class="btn" id="collapse" data-i18n="hide" data-i18n-title="hidePanel">Hide</button>
+    </div>
+  </div>
+  <h2 data-i18n="view">View</h2>
+  <div class="row">
+    <button class="btn" id="vFull" data-i18n="full" data-i18n-title="fullTitle">Full</button>
+    <button class="btn" id="vTop" data-i18n="top" data-i18n-title="topTitle">Top</button>
+    <button class="btn" id="vWalk" data-i18n="walk" data-i18n-title="walkTitle">Walk</button>
+    <button class="btn" id="vMeasure" data-i18n="measure" data-i18n-title="measureTitle" aria-pressed="false">Measure</button>
+    <button class="btn" id="vPlan" data-i18n="plan" data-i18n-title="planTitle">Plan</button>
+  </div>
+  <p class="help" data-i18n-html="hint"></p>
+  <p class="help" id="measureHelp" data-i18n="measureHelp" hidden></p>
+  <h2><span data-i18n="wallHeight">Wall height</span> <span id="cutValue"></span></h2>
+  <input type="range" id="cut" min="0.2" max="3" step="0.05" value="3" autocomplete="off">
+  <h2 data-i18n="showSection">Show</h2>
+  <label class="chk"><input type="checkbox" id="optFurniture" checked autocomplete="off"> <span data-i18n="furniture">Furniture</span></label>
+  <label class="chk"><input type="checkbox" id="optNames" checked autocomplete="off"> <span data-i18n="roomNames">Room names</span></label>
+  <div class="info" id="info" hidden><b id="infoTitle"></b><p id="infoText"></p></div>
+  <p class="credits" id="credits"></p>
+</div>
+
+<dialog id="helpDialog" aria-labelledby="helpTitle">
+  <div class="dlgHead"><h2 id="helpTitle" data-i18n="helpTitle">How to move around the house</h2><button class="btn" id="helpClose" data-i18n="close">Close</button></div>
+  <div class="dlgBody" data-i18n-html="helpBody"></div>
+</dialog>
+
+<div id="roomChip" hidden><b id="roomChipName"></b><span class="muted" data-i18n="chipHint"></span><button class="btn" id="roomChipExit" data-i18n="exit">Exit</button></div>
+<div id="hand" hidden>✋</div>
+<div id="walkHelp" hidden></div>
+
+<div id="plan" hidden>
+  <div class="planBar">
+    <b data-i18n="plan">Plan</b>
+    <span class="muted" data-i18n="planBar"></span>
+    <button class="btn" id="planFit" data-i18n="fit">Fit</button>
+    <button class="btn" id="planPrint" data-i18n="print">Print</button>
+    <button class="btn" id="planClose" data-i18n="close">Close</button>
+  </div>
+  <svg id="planSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"></svg>
+</div>
+
+<script type="module">
+  import { start } from './engine/engine.js';
+  // The house is chosen with ?house=<folder in houses/>; without it, the example one
+  const id = new URLSearchParams(location.search).get('house') || 'apartment-4a';
+  if (!/^[a-z0-9-]+$/.test(id)) throw new Error('Invalid house name');
+  const { default: house } = await import(`./houses/${id}/house.js`);
+  start(house);
+</script>
+</body>
+</html>
